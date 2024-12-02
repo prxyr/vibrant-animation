@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibrant Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: #000;
+        }
+
+        /* 背景渐变动画 */
+        @keyframes gradientBackground {
+            0% {
+                background: linear-gradient(45deg, #ff0066, #33ccff, #ccff33, #ffcc00);
+            }
+            25% {
+                background: linear-gradient(45deg, #ccff33, #ff0066, #33ccff, #ffcc00);
+            }
+            50% {
+                background: linear-gradient(45deg, #33ccff, #ffcc33, #ff0066, #ffcc00);
+            }
+            75% {
+                background: linear-gradient(45deg, #ffcc00, #33ccff, #ff0066, #ccff33);
+            }
+            100% {
+                background: linear-gradient(45deg, #ff0066, #33ccff, #ccff33, #ffcc00);
+            }
+        }
+
+        /* 页面背景动画 */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            animation: gradientBackground 5s ease infinite;
+        }
+
+        /* 动画中的文字 */
+        #text {
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 2s ease-in-out forwards 3s;
+        }
+
+        /* 文字渐显上升动画 */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 按钮样式 */
+        button {
+            padding: 12px 30px;
+            font-size: 18px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: buttonAppear 1s ease-in-out forwards 5s;
+        }
+
+        button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        @keyframes buttonAppear {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 背景动画 -->
+    <div class="background"></div>
+
+    <!-- 显示文字 -->
+    <div id="text">Hello the world</div>
+
+    <!-- 按钮 -->
+    <button onclick="alert('You clicked the button!')">Click Me</button>
+
+</body>
+</html>
